@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class Bruxa : MonoBehaviour
-
+public class Bruxa : Personagem
 {
     public enum ArmaDaBruxa
     {
@@ -10,13 +9,12 @@ public class Bruxa : MonoBehaviour
 
     public enum ArmaduraDaBruxa
     {
-        CHAPEU, CAPA
+        CHAPEU,
+        CAPA
     }
 
-    [ SerializeField ]
-    private ArmaduraDaBruxa armadura;
-    [ SerializeField ]
-    private ArmaDaBruxa arma;
+    [SerializeField] private ArmaduraDaBruxa armadura;
+    [SerializeField] private ArmaDaBruxa arma;
 
     public void AtribuirArmadura(ArmaduraDaBruxa armadura)
     {
@@ -46,10 +44,13 @@ public class Bruxa : MonoBehaviour
         switch (arma)
         {
             case ArmaDaBruxa.VARINHA:
-                dano = Forca_Ataque() + 10;
+                dano = Dano() + 10;
                 break;
 
-            
-                
-            }
+
+
+        }
+
+        return dano;
+    }
 }
